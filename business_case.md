@@ -1,4 +1,4 @@
-# An investigation into 15 years of taxi data
+# The case
 
 This project utilises data from yellow taxis ranging 2009 - 2024. The source of the data is the New York City
 Government, who publicly releases this data from multiple different data vendors.

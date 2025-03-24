@@ -13,6 +13,11 @@ class TaxiDataCleaner:
             'total_amount'
         ]
 
+    def assign_helpful_columns(self):
+        self.data['pickup_datetime'] = pd.to_datetime(self.data['pickup_datetime'])
+        self.data['dropoff_datetime'] = pd.to_datetime(self.data['dropoff_datetime'])
+        self.data['trip_time_in_mins'] = (self.data['dropoff_datetime'] - self.data['pickup_datetime']).dt.total_seconds() / 60
+
     def remove_nans(self):
         """
         Removes any rows that have NaNs in our quantitative fields
@@ -32,13 +37,20 @@ class TaxiDataCleaner:
             (self.data['trip_distance'] != 0) &     # we can't have trips of 0 distance
             (self.data['trip_distance'] < 35) &     # NYC is 35 miles wide at most
             (self.data['trip_distance'] >= 0.1) &   # atleast 0.1 miles
-            (self.data['passenger_count'] <= 5)     # biggest taxi is a mini van of 5
+            (self.data['passenger_count'] <= 5) &   # biggest taxi is a mini van of 5
+            (self.data['trip_time_in_mins'] > 0)
         ]
 
     def remove_negative_values(self):
         self.data = self.data[
             (self.data[self.quant_fields] > 0).all(axis=1)
         ]
+
+    def clean_data(self):
+        self.assign_helpful_columns()
+        self.remove_nans()
+        self.remove_negative_values()
+        self.remove_nonsense_values()
 
     def write_data(self, path: str):
         self.data.to_parquet(path)
