@@ -175,5 +175,5 @@ data/clean_data
 data/clean_data_adjusted
 data/clean_data_adjusted_geo
 data/monthly_data
-data/DS_Store
-DS_Store
+data/.DS_Store
+.DS_Store
