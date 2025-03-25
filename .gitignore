@@ -172,3 +172,4 @@ cython_debug/
 
 # Large data files
 data
+.DS_Store
