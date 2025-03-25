@@ -10,17 +10,23 @@ This end-to-end data project considers a hypothetical business case of a company
 
 This is a project with *lots* of data - we are talking millions and millions of taxi trips. I used this project as a way to teach myself more about how to apply machine learning techniques beyond linear regression, as well as outside of the domain of financial markets which is what I've become accustomed to.
 
+[Read about the case and requirements](./business_case.md)
+
 ## Read the full paper/report here
 
 
 
-## Pre-regression and data wrangling
-[Read about the case and requirements](./business_case.md)
+## Data wrangling
 
-[The data cleaning process](./research/data_quality.ipynb)
+### General data cleaning
+[The data cleaning process](./data/research/data_quality.ipynb)
 
-[Understanding pickup and drop off locations](./research/understanding_locations.ipynb)
+[Understanding pickup and drop off locations](./data/research/understanding_locations.ipynb)
 
-[An investigation into inflation](./research/inflation.ipynb)
+### Inflation of currency/amount
+[An investigation into inflation](./data/research/inflation.ipynb)
+
+### Fixed fare clustering
+[An investigation into fixed fare clustering](./data/research/fixed_fares.ipynb)
 
 ## Regression and analytics
