@@ -17,7 +17,7 @@ profits to increase funding.
 1. Create **actionable and interpretable** insights into trip profitability. 
 2. Determine **trends** regarding taxi and ridesharing earnings; including historical earnings shares, seasonality and more.
 3. Design a **live algorithm/score** which predicts trip favourability for profits with strong out-of-sample performance.
-4. Create a **surge pricing model** based on the yellow taxi data; focusing on relationships between cost,
+4. Create models for tips, surge pricing and fare amounts.
 frequency, expected profits and location.
 
 ## Technical requirements
