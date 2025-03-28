@@ -30,4 +30,7 @@ This is a project with *lots* of data - we are talking millions and millions of 
 [An investigation into fixed fare clustering](./data/research/fixed_fares.ipynb)
 
 ## Regression and analytics
+
+[Descriptive trends](./research/descriptive_trends.ipynb)
+
 [Predicting tips](./research/tips.ipynb)
