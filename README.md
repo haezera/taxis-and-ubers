@@ -14,7 +14,11 @@ This is a project with *lots* of data - we are talking millions and millions of 
 
 ## Read the full paper/report here
 
+## Assumptions
 
+There have been some assumptions made about the data (and my access to external information) to make the project interesting, and more akin to a real life business case.
+
+[Assumptions](./assumptions.md)
 
 ## Data wrangling
 
@@ -34,3 +38,5 @@ This is a project with *lots* of data - we are talking millions and millions of 
 [Descriptive trends](./research/descriptive_trends.ipynb)
 
 [Predicting tips](./research/tips.ipynb)
+
+[Finding the fare rate](./research/fare_amount.ipynb)
