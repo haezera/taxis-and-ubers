@@ -12,8 +12,6 @@ This is a project with *lots* of data - we are talking millions and millions of 
 
 [Read about the case and requirements](./business_case.md)
 
-## Read the full paper/report here
-
 ## Assumptions
 
 There have been some assumptions made about the data (and my access to external information) to make the project interesting, and more akin to a real life business case.
@@ -43,3 +41,4 @@ There have been some assumptions made about the data (and my access to external 
 
 [Congestion multiplier](./research/congestion.ipynb)
 
+## Final model + use cases
