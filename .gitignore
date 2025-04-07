@@ -171,10 +171,10 @@ cython_debug/
 .pypirc
 
 # Large data files
-data/clean_data
-data/clean_data_adjusted
-data/clean_data_adjusted_geo
-data/monthly_data
-data/tr_data
-data/.DS_Store
+ds-research/data/clean_data
+ds-research/data/clean_data_adjusted
+ds-research/data/clean_data_adjusted_geo
+ds-research/data/monthly_data
+ds-research/data/tr_data
+ds-research/.DS_Store
 .DS_Store

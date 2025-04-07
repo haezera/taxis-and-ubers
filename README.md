@@ -21,24 +21,36 @@ There have been some assumptions made about the data (and my access to external 
 ## Data wrangling
 
 ### General data cleaning
-[The data cleaning process](./data/research/data_quality.ipynb)
+[The data cleaning process](./ds-research/data/research/data_quality.ipynb)
 
-[Understanding pickup and drop off locations](./data/research/understanding_locations.ipynb)
+[Understanding pickup and drop off locations](./ds-research/data/research/understanding_locations.ipynb)
 
 ### Inflation of currency/amount
-[An investigation into inflation](./data/research/inflation.ipynb)
+[An investigation into inflation](./ds-research/data/research/inflation.ipynb)
 
 ### Fixed fare clustering
-[An investigation into fixed fare clustering](./data/research/fixed_fares.ipynb)
+[An investigation into fixed fare clustering](./ds-research/data/research/fixed_fares.ipynb)
 
 ## Regression, feature creation and analytics
 
-[Descriptive trends](./research/descriptive_trends.ipynb)
+[Descriptive trends](./ds-research/research/descriptive_trends.ipynb)
 
-[Predicting tips](./research/tips.ipynb)
+[Predicting tips](./ds-research/research/tips.ipynb)
 
-[Finding the fare rate](./research/fare_amount.ipynb)
+[Finding the fare rate](./ds-research/research/fare_amount.ipynb)
 
-[Congestion multiplier](./research/congestion.ipynb)
+[Congestion multiplier](./ds-research/research/congestion.ipynb)
 
-## Final model + use cases
+## Final model details
+
+> The main goal of the project was to find:
+> 1. A model for fares
+> 2. A model for predicting total revenue from a trip
+>
+> Of course, a model for predicting total revenue from a trip will be a model for fares + tips and other expenses.
+
+The fare model was comprised of two separate components:
+1. A fare rate, which was calculated with a modified `quantile regression` on a 1 year lookback window of taxi data
+2. A congestion multiplier, which caps at 2x, and used a hypothetical `congestion` feature to add multipliers into the fare
+
+The *total revenue* model adds on top of this, a tip prediction model. The tip prediction model uses gradient-boosted decision trees (`XGBoost`) to capture non-linear behaviours around short and longer distance trips. 
