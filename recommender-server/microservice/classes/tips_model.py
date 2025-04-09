@@ -11,16 +11,16 @@ class TipsModel:
     """
     def __init__(self, data: pd.DataFrame):
         """
-        Pass in trips data, with columns ['trip_distance, 'fare_amount']
+        Pass in trips data, with columns ['trip_distance, 'tip_amount']
         """
-        if 'trip_distance' not in data.columns or 'fare_amount' not in data.columns:
-            raise ValueError('Data requires column "trip_distance" and "fare_amount"')
+        if 'trip_distance' not in data.columns or 'tip_amount' not in data.columns:
+            raise ValueError('Data requires column "trip_distance" and "tip_amount"')
 
         self.dists_and_tips = data.copy()
 
     def clean(self):
         self.dists_and_tips['tip_amount_z_score'] = zscore(self.dists_and_tips['tip_amount'])
-        return self.dists_and_tips[abs(self.dists_and_tips['tip_amount_z_score']) < 2]
+        self.dists_and_tips = self.dists_and_tips[abs(self.dists_and_tips['tip_amount_z_score']) < 2]
 
     def fit(self):
         if not hasattr(self, 'dists_and_tips'):
