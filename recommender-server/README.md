@@ -21,10 +21,9 @@ The service is split into three components:
 
 ### Conceptual service design
 
-![](./client/static/taxis-and-ubers-service.png)
+![](./taxis-and-ubers-service.png)
 
 ### Database transfer and design
 
-[Trips database schema and transfer](../research/parquet_to_sql.ipynb)
+[Trips database schema and transfer](../ds-research/research/parquet_to_sql.ipynb)
 
-[User database schema]
