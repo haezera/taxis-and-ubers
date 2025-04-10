@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "net": "^1.0.2"
+  }
+}
