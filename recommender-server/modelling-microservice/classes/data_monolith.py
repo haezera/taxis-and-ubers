@@ -24,7 +24,7 @@ class DataMonolith:
         '''
         self.data = pd.read_sql(query, self.engine, params=(start_dt, end_dt))
 
-    def return_columns(self, columns: list):
+    def return_columns(self, columns: list) -> pd.DataFrame:
         return self.data[columns]
 
     def return_trip_by_id(self, id: int):
