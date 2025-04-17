@@ -25,8 +25,6 @@ class TipsModel:
     def fit(self):
         if not hasattr(self, 'dists_and_tips'):
             raise ValueError("Data not fecthed yet. Call .fetch() first!")
-
-        print('Fitting model...')
         self.model = xgb.XGBRegressor(
             n_estimators=100,
             max_depth=4,
