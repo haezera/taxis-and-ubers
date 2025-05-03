@@ -116,20 +116,20 @@ class FareMicroservice:
 
     def start_server(self):
         print('Starting server...')
-        self.server.listen()
-        while True:
-            try:
+        try:
+            self.server.listen()
+            while True:
                 conn, addr = self.server.accept()
                 t = Thread(target=self.handle_client, args=[conn, addr])
                 t.start()
-
                 self.client_threads.append(t)
-            except KeyboardInterrupt:
-                self.breakdown()
-                print('Server shutting down')
-                break
-            except Exception as e:
-                print(f'Server experienced exception {e}')
+        except KeyboardInterrupt:
+            print('KeyboardInterrupt received, shutting down server...')
+            self.breakdown()
+        except Exception as e:
+            print(f'Server experienced exception {e}')
+        finally:
+            self.server.close()
 
 # server start
 
@@ -143,6 +143,8 @@ if __name__ == '__main__':
     host = config['MICROSERVICE_HOST']
     port = int(config['MICROSERVICE_PORT'])
 
-    f = FareMicroservice(host, port)
-    f.start_server()
-
+    try:
+        f = FareMicroservice(host, port)
+        f.start_server()
+    except KeyboardInterrupt:
+        print('Gracefully shutting down from main...')

@@ -3,10 +3,13 @@
     "@types/express": "^5.0.1",
     "@types/node": "^22.14.1",
     "express": "^5.1.0",
+    "prisma": "^6.7.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@prisma/client": "^6.7.0",
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.5.0",
     "middleware-http-errors": "^0.1.2",
     "net": "^1.0.2"

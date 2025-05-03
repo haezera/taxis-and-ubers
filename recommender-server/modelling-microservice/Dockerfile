@@ -15,4 +15,6 @@ COPY microservice.py .
 COPY classes/ classes
 COPY .env .
 
+EXPOSE 8760
+
 CMD ["python3", "microservice.py"]
