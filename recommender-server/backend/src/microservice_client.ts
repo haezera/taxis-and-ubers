@@ -14,7 +14,7 @@ interface MessageResponse {
     msg: string;
 }
 
-class MicroserviceClient {
+export class MicroserviceClient {
     private socket: net.Socket;
     private port: number;
     private host: string;

@@ -4,6 +4,7 @@ from threading import Thread
 from socket import socket, SOCK_STREAM, AF_INET, timeout
 from classes import fare_model, tips_model, congestion_model, data_monolith
 import json
+from dotenv import dotenv_values
 
 class FareMicroservice:
     """
@@ -133,13 +134,15 @@ class FareMicroservice:
 # server start
 
 if __name__ == '__main__':
-    import sys
-    if len(sys.argv) != 3:
-        print('Usage: python3 microservice.py <host> <port>')
-        exit()
+    config = dotenv_values('./.env')
     
-    host = sys.argv[1]
-    port = int(sys.argv[2])
+    if 'MICROSERVICE_HOST' not in config or 'MICROSERVICE_PORT' not in config:
+        print('Error: dotenv config has not been configured correctly.')
+        exit()
+
+    host = config['MICROSERVICE_HOST']
+    port = int(config['MICROSERVICE_PORT'])
+
     f = FareMicroservice(host, port)
     f.start_server()
 

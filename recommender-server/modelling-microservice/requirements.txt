@@ -1,0 +1,9 @@
+pandas
+numpy
+python-dotenv
+sqlalchemy
+xgboost
+statsmodels
+seaborn
+matplotlib
+scipy
