@@ -2,6 +2,16 @@
 
 import * as net from "net";
 import { json } from "stream/consumers";
+import 'dotenv/config'
+
+// initialise dotenv
+require('dotenv').config()
+
+const DATABASE_NAME = String(process.env.DATABASE_NAME)
+const DATABASE_HOST = String(process.env.DATABASE_HOST)
+const DATABASE_PORT = Number(process.env.DATABASE_PORT)
+const DATABASE_USERNAME = String(process.env.DATABASE_USERNAME)
+const DATABASE_PASSWORD = String(process.env.DATABASE_PASSWORD)
 
 interface PredictionResponse {
     type: string;
@@ -62,11 +72,11 @@ export class MicroserviceClient {
                 'type': 'INIT',
                 'tr_start': '2023-01-01',
                 'tr_end': '2024-01-01',
-                'db_name': 'taxis_and_ubers',
-                'db_host': 'localhost',
-                'db_port': 5432,
-                'db_username': 'haekim',
-                'db_password': 'password'
+                'db_name': DATABASE_NAME,
+                'db_host': DATABASE_HOST,
+                'db_port': DATABASE_HOST,
+                'db_username': DATABASE_USERNAME,
+                'db_password': DATABASE_PASSWORD
             }));
         })
     }

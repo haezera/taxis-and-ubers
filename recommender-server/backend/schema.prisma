@@ -1,0 +1,71 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model customers {
+  id       Int     @id @default(autoincrement())
+  email    String
+  username String
+  password String
+  rides    rides[]
+}
+
+model drivers {
+  id       Int     @id @default(autoincrement())
+  email    String
+  username String
+  password String
+  rides    rides[]
+}
+
+model rides {
+  id                Int       @id @default(autoincrement())
+  customer_id       Int
+  driver_id         Int
+  fare_amount       Decimal   @db.Decimal
+  estimated_revenue Decimal   @db.Decimal
+  customers         customers @relation(fields: [customer_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  drivers           drivers   @relation(fields: [driver_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model trips {
+  pickup_datetime   DateTime? @db.Timestamp(6)
+  dropoff_datetime  DateTime? @db.Timestamp(6)
+  passenger_count   BigInt?
+  trip_distance     Float?
+  fare_amount       Float?
+  tip_amount        Float?
+  trip_time_in_secs Float?
+  fare_per_sec      Float?
+  day               String?
+  time              DateTime? @db.Time(6)
+  pickup_longitude  Float?
+  pickup_latitude   Float?
+  dropoff_longitude Float?
+  dropoff_latitude  Float?
+  id                BigInt    @id @default(autoincrement())
+}
+
+model trips_prod {
+  pickup_datetime   DateTime? @db.Timestamp(6)
+  dropoff_datetime  DateTime? @db.Timestamp(6)
+  passenger_count   BigInt?
+  trip_distance     Float?
+  fare_amount       Float?
+  tip_amount        Float?
+  trip_time_in_secs Float?
+  fare_per_sec      Float?
+  day               String?
+  time              DateTime? @db.Time(6)
+  pickup_longitude  Float?
+  pickup_latitude   Float?
+  dropoff_longitude Float?
+  dropoff_latitude  Float?
+  id                BigInt    @id @default(autoincrement())
+}

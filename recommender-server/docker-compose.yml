@@ -1,0 +1,12 @@
+services:
+  microservice:
+    build: ./modelling-microservice
+    ports:
+      - "8760:8760"
+
+  backend:
+    build: ./backend
+    ports:
+      - "8761:8761"
+    depends_on:
+      - microservice
