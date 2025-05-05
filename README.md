@@ -1,4 +1,4 @@
-# An investigation 15 years of NYC taxi data.
+# An investigation into 15 years of NYC taxi data.
 
 Author: Haeohreum Kim
 
